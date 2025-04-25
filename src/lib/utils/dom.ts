@@ -48,3 +48,8 @@ export function updateTitle(
     titleElement.setAttribute('original-title', originalTitle)
   }
 }
+
+export function countHiddenSpoilersOnDocument(): number {
+  const hiddenElements = $$('[data-spoiler-placeholder]')
+  return hiddenElements.length
+}

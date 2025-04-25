@@ -1,4 +1,5 @@
 import {
+  PROCESSED_ATTR,
   SCORE_KEYWORDS,
   SCORE_REGEX,
   THUMBNAIL_SELECTORS,
@@ -38,9 +39,13 @@ const hideSpoiler = (node: HTMLElement, keywords: string[]) => {
   const hasKeywords = checkTextForKeywords(originalTitle, keywords)
   const hasSpoiler = checkForSpoiler(originalTitle)
 
-  if (thumbnailElement && hasKeywords && hasSpoiler) {
+  if (
+    thumbnailElement &&
+    hasKeywords &&
+    hasSpoiler &&
+    !titleElement.hasAttribute(PROCESSED_ATTR)
+  ) {
     hideThumbnail(thumbnailElement)
-
     const cleanedTitle = removeScores(originalTitle)
     updateTitle(titleElement, cleanedTitle, originalTitle)
   }

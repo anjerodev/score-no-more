@@ -1,5 +1,6 @@
 import { XIcon } from 'lucide-preact'
 
+import { Button } from '@/components/ui/button'
 import { Chip } from '@/components/ui/chip'
 
 export const KeywordChip = ({
@@ -11,15 +12,15 @@ export const KeywordChip = ({
 }) => {
   return (
     <Chip label={keyword}>
-      <button
-        type="button"
+      <Button
         tabIndex={0}
-        class="bg-primary text-primary-foreground z-10 flex size-4 cursor-pointer appearance-none items-center justify-center rounded-full opacity-70 transition-[opacity,transform] outline-none select-none hover:opacity-100 active:scale-95 active:opacity-80"
+        size="icon"
+        className="size-4 rounded-full p-0"
         onClick={onRemove}
         aria-label={`Remove ${keyword}`}
       >
         <XIcon className="size-3" />
-      </button>
+      </Button>
     </Chip>
   )
 }

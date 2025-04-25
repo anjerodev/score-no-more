@@ -10,7 +10,7 @@ const Chip = ({ children, className, label, ...props }: ChipProps) => {
   return (
     <div
       className={cn(
-        'text-small border-border text-foreground relative box-border inline-flex h-7 max-w-fit min-w-min items-center justify-between gap-2 rounded-full border-2 bg-transparent px-1 whitespace-nowrap',
+        'text-small border-border text-foreground relative box-border inline-flex h-7 max-w-fit min-w-min shrink-0 items-center justify-between gap-2 rounded-full border-2 bg-transparent px-1 whitespace-nowrap',
         className
       )}
       {...props}
