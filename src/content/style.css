@@ -1,6 +1,6 @@
 .spoiler-placeholder {
   background-color: hsl(0deg 0% 0% / 5%);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(20px);
   object-fit: cover;
   position: absolute;
   inset: 0;
