@@ -6,6 +6,8 @@
 
 Hide potential sports score spoilers on YouTube titles and thumbnails based on your custom keywords. Keep your feed safe from unwanted results!
 
+![Score no more preview](public/preview.jpg)
+
 ## Features ✨
 
 - **Keyword-Based Filtering:** Add keywords (teams, players, leagues, event names) to hide videos containing them in the title.
