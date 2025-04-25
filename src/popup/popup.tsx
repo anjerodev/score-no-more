@@ -17,6 +17,7 @@ import { Input, inputStyle } from '@/components/ui/input'
 import { KeywordChip } from '@/components/keyword-chip'
 
 export function Popup() {
+  const [value, setValue] = useState('')
   const [keywords, setKeywords] = useState<string[]>([])
   // const [hiddenCount, setHiddenCount] = useState(0)
   const [loading, setLoading] = useState(true)
@@ -76,21 +77,28 @@ export function Popup() {
           type="text"
           placeholder="Eg. betis"
           autofocus
+          value={value}
+          onInput={(e) => setValue((e.target as HTMLInputElement).value)}
           className="border-none bg-transparent px-0 focus:border-none focus-visible:ring-0"
         />
-        <Button type="submit" size="sm" className="h-6 rounded-sm">
+        <Button
+          type="submit"
+          size="sm"
+          className="h-6 rounded-sm"
+          disabled={!value}
+        >
           Add
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path
               d="M6.00002 5.16667L2.66669 8.50001L6.00002 11.8333"
-              stroke="#151515"
+              stroke="currentColor"
               stroke-width="1.33333"
               stroke-linecap="round"
               stroke-linejoin="round"
             />
             <path
               d="M13.3334 5V5.83333C13.3334 6.54058 13.0524 7.21886 12.5523 7.71895C12.0522 8.21905 11.3739 8.5 10.6667 8.5H2.66669"
-              stroke="#151515"
+              stroke="currentColor"
               stroke-width="1.33333"
               stroke-linecap="round"
               stroke-linejoin="round"

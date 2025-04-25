@@ -18,13 +18,20 @@ function createSpoilerPlaceholder(): HTMLDivElement {
   const placeholder = document.createElement('div')
   placeholder.setAttribute('data-spoiler-placeholder', 'true')
   placeholder.classList.add('spoiler-placeholder')
-  placeholder.textContent = 'Possible Spoiler'
   return placeholder
+}
+
+function createSpoilerBubble(): HTMLDivElement {
+  const bubble = document.createElement('div')
+  bubble.classList.add('spoiler-bubble')
+  bubble.textContent = 'Spoiler'
+  return bubble
 }
 
 export function hideThumbnail(thumbnailElement: HTMLImageElement): void {
   if (!thumbnailElement.hasAttribute(PROCESSED_ATTR)) {
     const placeholder = createSpoilerPlaceholder()
+    const bubble = createSpoilerBubble()
 
     thumbnailElement.style.position = 'relative'
     thumbnailElement.style.overflow = 'hidden'
@@ -32,7 +39,9 @@ export function hideThumbnail(thumbnailElement: HTMLImageElement): void {
 
     const thumbnailParent = thumbnailElement.parentElement
     if (thumbnailParent) {
+      thumbnailParent.classList.add('pixelated')
       thumbnailParent.appendChild(placeholder)
+      thumbnailParent.appendChild(bubble)
     }
   }
 }

@@ -1,13 +1,29 @@
 .spoiler-placeholder {
-  background-color: hsl(0deg 0% 65.98% / 90%);
-  backdrop-filter: blur(8px);
+  background-color: hsl(0deg 0% 0% / 5%);
+  backdrop-filter: blur(12px);
   object-fit: cover;
   position: absolute;
   inset: 0;
-  display: grid;
-  place-items: center;
-  font-size: 1.8rem;
-  font-weight: medium;
-  color: white;
-  text-shadow: 0 0 12px rgb(0 0 0 / 25%);
+}
+
+.spoiler-bubble {
+  display: block;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(to bottom right, #e409bf, #a22eff);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 2rem;
+  box-shadow: 0 1px 6px hsl(273 100 59 / 35%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  margin: 8px;
+}
+
+.pixelated {
+  img {
+    filter: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='messy-pixelate-simplified' x='0' y='0' width='100%25' height='100%25'%3E%3C!-- 1. Create noise --%3E%3CfeTurbulence baseFrequency='0.05' numOctaves='2' stitchTiles='stitch' type='fractalNoise' result='noise'/%3E%3C!-- 2. Use noise to displace the image --%3E%3CfeDisplacementMap in='SourceGraphic' in2='noise' scale='15' xChannelSelector='R' yChannelSelector='G' result='displaced'/%3E%3C!-- 3. Apply morphology (dilate) directly to the displaced image --%3E%3CfeMorphology operator='dilate' radius='7' in='displaced' result='finalPixelation'/%3E%3C/filter%3E%3C/svg%3E#messy-pixelate-simplified");
+  }
 }
