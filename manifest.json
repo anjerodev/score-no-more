@@ -1,8 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Score no more",
-  "version": "1.0",
-  "description": "Hides potential sport spoilers on YouTube titles and thumbnails based on keywords.",
+  "description": "Hides potential sport scores spoilers on YouTube titles and thumbnails based on keywords.",
   "permissions": ["storage", "activeTab", "scripting"],
   "host_permissions": ["*://*.youtube.com/*"],
   "action": {
