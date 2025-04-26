@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+dist_chrome
+chrome
+dist_firefox
+firefox
+extension

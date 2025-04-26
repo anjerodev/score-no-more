@@ -1,13 +1,16 @@
 {
   "name": "score-no-more-extension",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "build:watch": "vite build --watch",
-    "preview": "vite preview"
+    "build:chrome": "tsc -b && vite build --config vite.config.chrome.ts",
+    "build:firefox": "tsc -b && vite build --config vite.config.firefox.ts",
+    "build:watch": "vite build --config vite.config.chrome.ts --watch",
+    "build": "bun run build:chrome && bun run build:firefox && bun run zip",
+    "preview": "vite preview",
+    "zip": "mkdir -p extension && (cd dist_chrome && zip -r ../extension/chrome.zip .) && (cd dist_firefox && zip -r ../extension/firefox.zip .)"
   },
   "dependencies": {
     "class-variance-authority": "0.7.1",
@@ -23,6 +26,8 @@
     "@trivago/prettier-plugin-sort-imports": "5.2.2",
     "@types/bun": "1.2.10",
     "@types/chrome": "0.0.316",
+    "@types/firefox-webext-browser": "120.0.4",
+    "@types/web": "0.0.226",
     "eslint": "9.25.1",
     "eslint-config-preact": "1.5.0",
     "eslint-config-prettier": "10.1.2",

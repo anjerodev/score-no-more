@@ -27,7 +27,7 @@ export function Popup() {
       const keywordsPromise = getKeywords()
       // const hiddenCountPromise = getHiddenCount()
       const [storedKeywords] = await Promise.all([keywordsPromise])
-
+      console.log({ storedKeywords })
       // setHiddenCount(storedCount)
       setKeywords(storedKeywords)
       setLoading(false)
@@ -50,7 +50,7 @@ export function Popup() {
       }
     }
 
-    e.currentTarget.reset() // Clear the inputs to prepare for the next submission
+    setValue('')
   }
 
   return (
