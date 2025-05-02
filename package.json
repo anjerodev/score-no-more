@@ -8,7 +8,7 @@
     "build:chrome": "tsc -b && vite build --config vite.config.chrome.ts",
     "build:firefox": "tsc -b && vite build --config vite.config.firefox.ts",
     "build": "bun run build:chrome && bun run build:firefox && bun run zip",
-    "zip": "mkdir -p extension && (cd dist_chrome && zip -r ../extension/chrome.zip .) && (cd dist_firefox && zip -r ../extension/firefox.zip .)"
+    "zip": "mkdir -p extension && v=$(node -p \"require('./package.json').version\") && (cd dist_chrome && zip -r ../extension/chrome-$v.zip .) && (cd dist_firefox && zip -r ../extension/firefox-$v.zip .)"
   },
   "dependencies": {
     "class-variance-authority": "0.7.1",
