@@ -8,18 +8,20 @@ export function Content() {
   useEffect(() => {
     getKeywords().then((keywords) => {
       if (keywords.length > 0) {
-        console.log('Keywords loaded, starting observation:', keywords)
+        // console.log('Keywords loaded, starting observation:', keywords)
         // Initial processing of existing videos
         observeVideosInDOM(keywords)
 
         // Start observing DOM changes
-        const mo = observeDOMChanges(keywords)
+        const observers = observeDOMChanges(keywords)
 
         // Cleanup function: disconnect the observer when the component unmounts
         return () => {
-          if (mo) {
+          if (observers) {
             console.log('Disconnecting MutationObserver...')
-            mo.disconnect()
+            observers.forEach((observer) => {
+              observer.disconnect()
+            })
           }
         }
       }

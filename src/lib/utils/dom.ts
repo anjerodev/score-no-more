@@ -1,4 +1,4 @@
-import { PROCESSED_ATTR } from '@/lib/constants'
+import { removeScores } from '@/content/helpers'
 
 export function $<T extends HTMLElement>(
   selector: string,
@@ -29,33 +29,25 @@ function createSpoilerBubble(): HTMLDivElement {
 }
 
 export function hideThumbnail(thumbnailElement: HTMLImageElement): void {
-  if (!thumbnailElement.hasAttribute(PROCESSED_ATTR)) {
+  const thumbnailParent = thumbnailElement.parentElement
+
+  if (thumbnailParent && !$('[data-spoiler-placeholder]', thumbnailParent)) {
     const placeholder = createSpoilerPlaceholder()
     const bubble = createSpoilerBubble()
 
-    thumbnailElement.style.position = 'relative'
-    thumbnailElement.style.overflow = 'hidden'
-    thumbnailElement.setAttribute(PROCESSED_ATTR, 'true')
-
-    const thumbnailParent = thumbnailElement.parentElement
-    if (thumbnailParent) {
-      thumbnailParent.classList.add('pixelated')
-      thumbnailParent.appendChild(placeholder)
-      thumbnailParent.appendChild(bubble)
-    }
+    thumbnailParent.classList.add('pixelated')
+    thumbnailParent.appendChild(placeholder)
+    thumbnailParent.appendChild(bubble)
   }
 }
 
 export function updateTitle(
-  titleElement: HTMLHeadingElement,
-  newText: string,
+  titleElement: HTMLElement,
   originalTitle: string
 ): void {
-  if (!titleElement.hasAttribute(PROCESSED_ATTR)) {
-    titleElement.textContent = newText
-    titleElement.setAttribute(PROCESSED_ATTR, 'true')
-    titleElement.setAttribute('original-title', originalTitle)
-  }
+  const cleanedTitle = removeScores(originalTitle)
+  titleElement.textContent = cleanedTitle
+  titleElement.removeAttribute('is-empty')
 }
 
 export function countHiddenSpoilersOnDocument(): number {

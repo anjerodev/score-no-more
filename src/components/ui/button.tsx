@@ -1,30 +1,30 @@
 import { type VariantProps, cva } from 'class-variance-authority'
-import { ComponentProps } from 'preact'
+import type { ComponentProps } from 'preact'
 
 import { cn } from '@/lib/utils/tailwind'
 
 const buttonVariants = cva(
   [
-    "relative z-0 inline-flex items-center justify-center shrink-0 cursor-pointer gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0 outline-none ring-accent/30 focus-visible:ring-3",
-    'before:absolute before:inset-0 before:rounded-md before:transition-opacity before:opacity-0 before:z-[-1] hover:before:opacity-100 before:bg-current/8 before:pointer-events-none',
-    'active:scale-95',
-    'disabled:pointer-events-none disabled:bg-muted disabled:text-muted-foreground',
-    'aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive',
+    'relative z-0 inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium text-sm outline-none transition-all focus-visible:ring-3 [&_svg:not([class*="size-"])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0',
+    'before:pointer-events-none before:absolute before:inset-0 before:z-[-1] before:rounded-md before:bg-current/20 before:opacity-0 before:transition-opacity hover:before:opacity-50',
+    'active:before:opacity-100',
+    'disabled:pointer-events-none disabled:inset-ring-muted-foreground/10 disabled:border-muted disabled:bg-muted disabled:text-muted-foreground',
   ],
   {
     variants: {
       variant: {
         default:
-          'bg-foreground text-background border border-foreground inset-ring inset-ring-background/10 disabled:inset-ring/5 disabled:border-muted-foreground/20',
-        accent: 'bg-primary text-primary-foreground',
+          'inset-ring inset-ring-primary-foreground/10 border border-primary bg-primary text-primary-foreground ring-primary/40',
+        accent:
+          'inset-ring inset-ring-accent-foreground/10 border border-accent bg-accent text-accent-foreground ring-accent/40 ',
         destructive:
-          'bg-destructive text-destructive-foreground shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40',
+          'inset-ring inset-ring-destructive-foreground/10 border border-destructive bg-destructive text-destructive-foreground ring-destructive/40',
         outline:
-          'border text-foreground border-input-border bg-input shadow-xs',
+          'border border-border bg-background text-foreground shadow-xs ring-foreground/15',
         secondary:
-          'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80',
-        ghost: 'bg-transparent',
-        link: 'text-primary underline-offset-4 hover:underline',
+          'inset-ring inset-ring-primary-foreground/10 border border-primary/10 bg-primary/10 text-primary ring-primary/15',
+        ghost: 'bg-transparent ring-primary/15',
+        link: 'text-primary underline-offset-4 ring-primary/15 before:hidden hover:underline disabled:border-transparent disabled:bg-transparent',
       },
       size: {
         default: 'h-9 px-4 py-2 has-[>svg]:px-3',

@@ -1,8 +1,6 @@
 # Score no more 🚫🏀🏈⚽️
 
-<!-- TODO: Replace EXTENSION_ID -->
-
-[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/EXTENSION_ID?style=for-the-badge)](https://chrome.google.com/webstore/detail/EXTENSION_ID)
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/ihcjnnakadiggddafheahkpjkpcggajc?style=for-the-badge)](https://chromewebstore.google.com/detail/score-no-more/ihcjnnakadiggddafheahkpjkpcggajc)
 
 Hide potential sports score spoilers on YouTube titles and thumbnails based on your custom keywords. Keep your feed safe from unwanted results!
 
