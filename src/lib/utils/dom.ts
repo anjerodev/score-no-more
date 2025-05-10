@@ -31,6 +31,8 @@ function createSpoilerBubble(): HTMLDivElement {
 export function hideThumbnail(thumbnailElement: HTMLImageElement): void {
   const thumbnailParent = thumbnailElement.parentElement
 
+  thumbnailElement.style.backgroundImage = 'none'
+
   if (thumbnailParent && !$('[data-spoiler-placeholder]', thumbnailParent)) {
     const placeholder = createSpoilerPlaceholder()
     const bubble = createSpoilerBubble()

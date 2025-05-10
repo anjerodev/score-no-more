@@ -1,6 +1,10 @@
 export const STORAGE_KEYWORDS_KEY = 'spoilerKeywords'
 export const STORAGE_SPOILERS_COUNT_KEY = 'spoilerHiddenCount'
-export const THUMBNAIL_SELECTORS: string[] = ['#thumbnail img', 'yt-image img']
+export const THUMBNAIL_SELECTORS: string[] = [
+  '#thumbnail img',
+  'yt-image img',
+  '.ytp-cued-thumbnail-overlay-image',
+]
 export const VIDEO_SELECTORS: string[] = [
   'ytd-rich-item-renderer', // Home feed, search results
   'ytd-video-renderer', // Search results, related videos
@@ -10,6 +14,8 @@ export const VIDEO_SELECTORS: string[] = [
   'ytm-compact-video-renderer', // Mobile web view related videos
   'ytd-reel-item-renderer', // Shorts
   'ytd-playlist-renderer', // Playlists
+  'ytp-cued-thumbnail-overlay-image', // Player thumbnail
+  'ytd-player', // Player
 ]
 export const PLAYER_TITLE_SELECTOR = 'h1.ytd-watch-metadata yt-formatted-string'
 export const TITLE_SELECTORS: string[] = [
